@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% if user.is_authenticated %}
+        {% if object_list %}
+            {% for obj in object_list %}
+                <div class="task-card w-75 m-auto p-3 mt-5 mb-5">
+                    <div class="d-flex justify-content-between">
+                        <h5>{{obj.title}}</h5><small>{{obj.created_at}}</small>
+                    </div>
+                    <p class="mb-4">{{obj.description}}</p>
+                    <div class="d-flex justify-content-between">
+                        {% if obj.completed %}
+                        <p class="fw-bold text-success">Completed</p>
+                        {% else %}
+                            <a href="{% url 'complete_task' obj.id %}" class=" text-white bg-black fw-bold text-decoration-none p-2"><small>Complete task</small></a>
+                        {% endif %}
+                            <form method="post" action="{% url 'delete_task' obj.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="border-0 text-white bg-danger fw-bold text-decoration-none p-2"><small>Delete task</small></button>
+                            </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1 class="text-center mt-5">You have no tasks.</h1>
+        {% endif %}
+    {% else %}
+        <h1 class="mt-5 text-center">Sign up or Login for adding tasks.</h1>
+    {% endif %}
+{% endblock %}

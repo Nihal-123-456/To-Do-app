@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load crispy_forms_tags %}
+<form method="post" class="w-50 m-auto mt-5">
+    {% csrf_token %}
+    {% for f in form %}
+        <div class="fw-bold">{{f.label_tag}}</div>
+        <div class="mt-2 mb-3">{{f}}</div>
+        <p class="text-danger">{{f.errors|striptags}}</p>
+    {% endfor %}
+    <input type="submit" class="w-100 bg-black text-white fw-bold p-2 mt-4 mb-4">
+</form>
+{% endblock %}

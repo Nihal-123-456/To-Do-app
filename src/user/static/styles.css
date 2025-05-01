@@ -1,0 +1,15 @@
+nav a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+nav button{
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+.task-card{
+    border: 1px solid gray;
+    border-radius: 10px;
+}
