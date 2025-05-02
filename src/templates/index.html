@@ -12,9 +12,9 @@
                         {% if obj.completed %}
                         <p class="fw-bold text-success">Completed</p>
                         {% else %}
-                            <a href="{% url 'complete_task' obj.id %}" class=" text-white bg-black fw-bold text-decoration-none p-2"><small>Complete task</small></a>
+                            <a href="{% url 'task:complete_task' obj.id %}" class=" text-white bg-black fw-bold text-decoration-none p-2"><small>Complete task</small></a>
                         {% endif %}
-                            <form method="post" action="{% url 'delete_task' obj.id %}">
+                            <form method="post" action="{% url 'task:delete_task' obj.id %}">
                                 {% csrf_token %}
                                 <button type="submit" class="border-0 text-white bg-danger fw-bold text-decoration-none p-2"><small>Delete task</small></button>
                             </form>

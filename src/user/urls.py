@@ -1,6 +1,7 @@
 from .views import home, UserRegisterView, UserLoginView, UserLogoutView
 from django.urls import path
 
+app_name = 'user'
 urlpatterns = [
     path('', home, name='home'),
     path('register/', UserRegisterView.as_view(), name='register'),

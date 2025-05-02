@@ -13,3 +13,4 @@ nav button{
     border: 1px solid gray;
     border-radius: 10px;
 }
+.success {color: green; border: 1px solid green;}
